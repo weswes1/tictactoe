@@ -20,9 +20,32 @@ def hasWon(boardList):
 
 print("Welcome to tic-tac-toe")
 
+notOver = True;
 
 
-# X's go first
+def player1move():
+	while (len(boardList)<=9):
+		amove = input("Enter a number from 0 through 8 to make your move")
+		if (checkinput(amove) & input not in moves):   # This move hasn't been taken, and is valid input
+		moves.append(amove) # Append the move to the moves list
+		boardList[amove]='X'					# Append the move to the boardlist
+
+
+
+
+
+def checkinput(input):
+	return (type(input)==int & (0<=input<=8))
+
+
+
+# Choose who goes first
+def getfirstPlayer
+amove = input("")
+
+
+
+
 # while (len(boardList)<=9):
 #	amove = input("Enter a number from 0 through 8 to make your move")
 #	if (checkinput(amove) & input not in moves):   # This move hasn't been taken, and is valid input
