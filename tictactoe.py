@@ -20,41 +20,41 @@ def hasWon(boardList):
 
 print("Welcome to tic-tac-toe")
 
-notOver = True;
+over = False;
 
 
 def player1move():
-	while (len(boardList)<=9):
+	if (len(boardList)<=9):  # There is still moves left to be made
 		amove = input("Enter a number from 0 through 8 to make your move")
-		if (checkinput(amove) & input not in moves):   # This move hasn't been taken, and is valid input
-		moves.append(amove) # Append the move to the moves list
-		boardList[amove]='X'					# Append the move to the boardlist
+		if (checkinput(amove) & amove not in moves):   # This move hasn't been taken, and is valid input
+		moves.append(amove)  # Append the move to the moves list
+		boardList[amove]='X' # Append the move to the boardlist
+		if (hasWon(boardList)):
+			print("Game Over")
+			over = True;
 
 
+def player2move():
+	if (len(boardList)<=9):  # There is still moves left to be made
+		amove = input("Enter a number from 0 through 8 to make your move")
+		if (checkinput(amove) & amove not in moves):   # This move hasn't been taken, and is valid input
+		moves.append(amove)  # Append the move to the moves list
+		boardList[amove]='X' # Append the move to the boardlist
+		displayboard()       # Display the board
+		if (hasWon(boardList)):
+			print("Game Over")
+			over=True;
 
 
+def playGame():
+	while not over:
+		player1move()
+		player2move()
 
 def checkinput(input):
 	return (type(input)==int & (0<=input<=8))
 
-
-
-# Choose who goes first
-def getfirstPlayer
-amove = input("")
-
-
-
-
-# while (len(boardList)<=9):
-#	amove = input("Enter a number from 0 through 8 to make your move")
-#	if (checkinput(amove) & input not in moves):   # This move hasn't been taken, and is valid input
-#		moves.append(amove)
-
-
-
-
-
-# Check input returns true if the input is an integer between 0 and 8 inclusive
-# def checkinput(input):
-#	return (type(input)==int & (0<=input<=8))
+def displayboard():
+	print(boardList[0]+"|"+boardList[1]+"|"+boardList[2] \n 
+		  boardlist[3]+"|"+boardlist[4]+"|"+boardList[5] \n
+		  boardlist[6]+"|"+boardlist[7]+"|"+boardList[8])
